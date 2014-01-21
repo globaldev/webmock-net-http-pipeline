@@ -1,0 +1,65 @@
+# WebMock + Net::HTTP::Pipeline
+
+Use WebMock to test your use of pipelined HTTP requests.
+
+[WebMock][webmock] is a great tool for stubbing HTTP requests in tests.
+[net-http-pipeline][nhp] is an HTTP/1.1 pipelining implementation build on top
+of Net::HTTP, used for making batches of HTTP calls more efficient.  The only
+problem is that the two don't play well together: net-http-pipeline bypasses
+the hooks that WebMock sets in place to provide its behaviour.
+
+This library mimics the -pipeline behaviour within WebMock's version of
+`Net::HTTP#request` to allow you to test your pipelined HTTP calls.
+
+## Installation
+
+Add this line to your application"s Gemfile:
+
+```ruby
+gem "webmock-net-http-pipeline"
+```
+
+And then execute:
+
+```bash
+$ bundle
+```
+
+Or install it yourself as:
+
+```bash
+$ gem install webmock-net-http-pipeline
+```
+
+## Usage
+
+Simply `require` this gem after requiring `webmock`, and start mocking and
+testing your pipelined requests.
+
+
+```ruby
+require "webmock"
+require "webmock/net/http/pipeline"
+
+include WebMock::API
+
+host = "www.example.com"
+stub_request(:any, host)
+
+http      = Net::HTTP.start(host, 80).tap { |http| http.pipelining = true }
+requests  = (1..3).map { Net::HTTP::Get.new("/") }
+responses = http.pipeline(requests)
+
+p responses   #=> [#<Net::HTTPOK 200  readbody=true>, ...]
+```
+
+## Contributing
+
+1. Fork it: http://github.com/globaldev/webmock-net-http-pipeline/fork
+2. Create your feature branch: `git checkout -b my-new-feature`
+3. Commit your changes: `git commit -am "Add some feature"`
+4. Push to the branch: `git push origin my-new-feature`
+5. Create new Pull Request
+
+[webmock]: https://github.com/bblimke/webmock
+[nhp]: https://github.com/drbrain/net-http-pipeline
