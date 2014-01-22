@@ -61,5 +61,21 @@ p responses   #=> [#<Net::HTTPOK 200  readbody=true>, ...]
 4. Push to the branch: `git push origin my-new-feature`
 5. Create new Pull Request
 
+## Licensing and Attribution
+
+webmock-net-http-pipeline is released under the MIT license as detailed in the
+LICENSE file that should be distributed with ; the source code is [freely
+available][wnhp].
+
+webmock-net-http-pipeline was developed by [Tim Blair][tim] and [Mat
+Sadler][mat] during work on [White Label Dating][wld], while employed by
+[Global Personals Ltd][gp].  Global Personals Ltd. have kindly agreed to the
+extraction and release of this software under the license terms above.
+
 [webmock]: https://github.com/bblimke/webmock
-[nhp]: https://github.com/drbrain/net-http-pipeline
+[nhp]:     https://github.com/drbrain/net-http-pipeline
+[wnhp]:    https://gitbug.com/globaldev/webmock-net-http-pipeline
+[tim]:     http://tim.bla.ir/
+[mat]:     https://twitter.com/matsadler
+[wld]:     http://www.whitelabeldating.com/
+[gp]:      http://www.globalpersonals.co.uk/
