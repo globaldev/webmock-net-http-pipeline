@@ -1,7 +1,7 @@
 require "minitest/autorun"
 require "webmock/net/http/pipeline"
 
-class TestPipeliningBehaviour < MiniTest::Unit::TestCase
+class TestPipeliningBehaviour < MiniTest::Test
 
   class MockedResponse < Struct.new(:request); end
   class MockedClient
@@ -51,7 +51,7 @@ class TestPipeliningBehaviour < MiniTest::Unit::TestCase
   end
 end
 
-class TestWebMockInclusion < MiniTest::Unit::TestCase
+class TestWebMockInclusion < MiniTest::Test
   def setup
     klass = WebMock::HttpLibAdapters::NetHttpAdapter
     @client = klass.instance_variable_get(:@webMockNetHTTP).new(nil)

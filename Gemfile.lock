@@ -1,0 +1,27 @@
+PATH
+  remote: .
+  specs:
+    webmock-net-http-pipeline (1.0.0)
+      webmock (~> 1.7)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    addressable (2.3.6)
+    crack (0.4.2)
+      safe_yaml (~> 1.0.0)
+    minitest (5.4.0)
+    rake (10.3.2)
+    safe_yaml (1.0.3)
+    webmock (1.18.0)
+      addressable (>= 2.3.6)
+      crack (>= 0.3.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  bundler (~> 1.5)
+  minitest
+  rake
+  webmock-net-http-pipeline!
