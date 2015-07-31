@@ -33,9 +33,8 @@ $ gem install webmock-net-http-pipeline
 
 ## Usage
 
-Simply `require` this gem after requiring `webmock`, and start mocking and
-testing your pipelined requests.
-
+Simply continue to mock your HTTP requests as you already do with Webmock, but
+now you can test your mocked pipeline calls too.
 
 ```ruby
 require "webmock"
@@ -52,6 +51,11 @@ responses = http.pipeline(requests)
 
 p responses   #=> [#<Net::HTTPOK 200  readbody=true>, ...]
 ```
+
+## Ruby Version Compatilbility
+
+As of v2.0.0, this library is compatible with Ruby versions >= 2.0.0.  For a
+version compatible with earlier Rubies, please v1.0.0.
 
 ## Contributing
 

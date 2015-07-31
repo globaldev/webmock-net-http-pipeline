@@ -21,5 +21,5 @@ module WebMock
 end
 
 WebMock::HttpLibAdapters::NetHttpAdapter.instance_variable_get(:@webMockNetHTTP).class_eval do
-  include WebMock::NetHTTPPipeline
+  prepend WebMock::NetHTTPPipeline
 end
